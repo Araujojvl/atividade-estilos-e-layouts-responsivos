@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="shortcut icon" href="./src/Icon/previsao-tempo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script defer src="./src/js/script.js"></script>
+    <title>Consulta do Clima</title>
+</head>
+<body>
+    <main>
+        <section class="painel">
+            <header class="cabecalho">
+                <span class="icone-clima"><i class="fa-solid fa-sun"></i></span>
+                <div>
+                    <p class="subtitulo">Previsão do Tempo</p>
+                    <h1 class="titulo">Como está o clima?</h1>
+                </div>
+            </header>
+            <div class="busca">
+                <label for="cidade">Busque uma cidade brasileira</label>
+                <div class="campo-busca">
+                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" placeholder="Ex: Jacareí" autocomplete="off" id="cidade">
+                </div>
+                <small>Digite uma cidade e pressione Enter</small>
+            </div>
+            <p id="mensagem"></p>
+            <div id="cidades"></div>
+            <div id="previsao"></div>
+        </section>
+    </main>
+</body>
+</html>

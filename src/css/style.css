@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b579f;
+    color: #17233c;
+    font-family: 'Roboto', sans-serif;
+    min-width: 100vh;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 3rem;
+}
+
+.painel {
+    background-color: #fffdf9f2;
+    width: min(100%, 64rem);
+    padding: clamp(1.5rem, 5vw, 2.75rem);
+    border: solid #ffffffa6 1px;
+    border-radius: 1.75rem;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.icone-clima {
+    background: linear-gradient(145deg, #ffb52e, #f47a1f);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 1.15rem;
+    box-shadow: 0 0.65rem 1.5rem #ff8f494d;
+}
+
+h1, h2, p {
+    margin-top: 0;
+}
+
+.subtitulo {
+    color: #ed761d;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.3rem;
+}
+
+.titulo {
+    font-size: clamp(1.75rem, 5vw, 2.3rem);
+    margin-bottom: 0rem;
+    letter-spacing: -0.04em;
+}
+
+.busca label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.55rem;
+}
+
+.campo-busca {
+    position: relative;
+}
+
+.campo-busca span {
+    color: #51718f;
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    font-size: 1.45rem;
+    transform: translateY(-50%) rotate(60deg);
+}
+
+#cidade {
+    background-color: #f1f7fc;
+    color: #17233c;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.95rem 1rem 0.95rem 3rem;
+    border: solid transparent 2px;
+    border-radius: 0.9rem;
+    transition:  background 160ms, border-color 160ms, box-shadow 160ms;
+}
+
+#cidade:focus {
+    background-color: #fff;
+    border-color: #1687d4;
+    box-shadow: 0 0 0 3px #1623d426;
+}
+
+.busca small {
+    color: #668097;
+    display: block;
+    margin-top: 0.55rem;
+}
+
+#mensagem {
+    color: #0b70bd;
+    font-weight: 600;
+    min-height: 1.25rem;
+    margin: 1rem 0 0;
+}
+
+#cidades {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin-top: 0.35rem;
+}
+
+.cidade {
+    background-color: #f0f0f0;
+    color: #25314a;
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: solid #d9e9f5 1px;
+    border-radius: 0.8rem;
+    transition:  background 160ms, transform 160ms, border-color 160ms;
+}
+
+.cidade::after {
+    color: #f17b22;
+    content: "\2192";
+    font-size: 1.2rem;
+}
+
+.cidade:focus-visible {
+    background-color: #eaf6ff;
+    outline: none;
+    border-color: #f3a260;
+    transform: translateX(0.2rem);
+}
+
+#previsao {
+    margin-top: 1.75rem;
+}
+
+#previsao h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.dias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 0.85rem;
+}
+
+.dia {
+    background: linear-gradient(145deg, #0875c9, #0b579f);
+    color: #fff;
+    padding: 1.1rem;
+    border-top: solid #ff922e 0.3rem;
+    box-shadow: 0 0.8rem 1.8rem rgba(4, 79, 143, 0.24);
+    border-radius: 1rem;
+}
+
+.dia p {
+    margin-bottom: 0.55rem;
+}
+
+.dia p:last-child {
+    margin-bottom: 0;
+}
+
+.dia .data {
+    font-weight: 800;
+    padding-bottom: 0.65rem;
+    border-bottom: solid #ffffff40 1px;
+}
+
+.temperaturas {
+    display: flex;
+    gap: 1rem;
+    margin: 0.85rem 0;
+}
+
+.temperaturas strong {
+    display: block;
+    font-size: 1.6rem;
+}
+
+
+@media(hover:hover) {
+    .cidade:hover {
+        background-color: #eaf6ff;
+        outline: none;
+        border-color: #f3a260;
+        transform: translateX(0.2rem);
+    }
+}
+
+@media(max-width: 48rem) {
+    main {
+        padding: 1.25rem;
+    }
+
+    .painel {
+        padding: 2rem;
+        border-radius: 1.4rem;
+    }
+
+    #cidades {
+        grid-template-columns: 1fr;
+    }
+
+    .dias {
+        grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    }
+}
+
+@media(max-width: 32rem) {
+    main {
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    .painel {
+        min-height: 100vh;
+        padding: 1.5rem 1rem;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .cabecalho {
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .icone-clima {
+        font-size: 1.65rem;
+        height: 3.15rem;
+        flex-basis: 3.1rem;
+        border-radius: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.65rem;
+        line-height: 1.1;
+    }
+
+    #cidade {
+        font-size: 1rem;
+        min-height: 3rem;
+    }
+
+    .cidade {
+        min-height: 3rem;
+    }
+
+    #previsao {
+        margin-top: 1.35rem;
+    }
+
+    .dias {
+        grid-template-columns: 1fr;
+    }
+
+    .temperaturas {
+        justify-content: space-between;
+        max-width: 14rem;
+    }
+}
