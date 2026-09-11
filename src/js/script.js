@@ -36,7 +36,7 @@ async function buscarCidades() {
         eltPrevisao.innerHTML = "";
 
         // Faz uma requisição para a API do BrasilAPI para buscar as cidades correspondentes ao nome digitado pelo usuário. A URL da requisição é construída dinamicamente usando o valor de nmCidade.
-        let valor = await fetch(`geocoding-api.open-meteo.com/v1/search${nmCidade}`);
+        let valor = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(nome)}&count=10&language=pt&format=json`);
 
         // Converte a resposta da requisição para o formato JSON e armazena os dados na variável dados.
         let dados = await valor.json();
@@ -85,7 +85,7 @@ async function buscarCidades() {
 async function buscarPrevisao(previsoes) {
     eltPrevisao.textContent = "Buscando previsão do tempo...";
 
-    let valor = await fetch(`api.open-meteo.com/v1/forecast${previsoes}`);
+    let valor = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code,uv_index_max&timezone=auto&forecast_days=6${previsoes}`);
 
     let dados = await valor.json();
 
